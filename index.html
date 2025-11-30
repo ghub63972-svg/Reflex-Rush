@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflex Rush: F1 Edition</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="center-container">
+    <h1>🏁 Reflex Rush: F1 Edition</h1>
+    <input type="text" id="playerName" placeholder="Enter your name" />
+    <h3>Select your F1 car:</h3>
+    <div class="avatars">
+      <img src="https://i.imgur.com/Tx1REdh.jpeg" class="avatar selected" onclick="selectAvatar(1)" />
+      <img src="https://i.imgur.com/3jJrTlk.jpeg" class="avatar" onclick="selectAvatar(2)" />
+      <img src="https://i.imgur.com/xULAiPt.jpeg" class="avatar" onclick="selectAvatar(3)" />
+    </div>
+    <button onclick="goToDifficultyScreen()">Continue</button>
+  </div>
+
+  <!-- Difficulty Screen -->
+  <div id="difficulty-screen" class="center-container hidden">
+    <h2>Select Difficulty</h2>
+    <div class="button-group">
+      <button onclick="startGame('easy')">Easy</button>
+      <button onclick="startGame('medium')">Medium</button>
+      <button onclick="startGame('hard')">Hard</button>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="center-container hidden">
+    <h2>Get Ready!</h2>
+    <div id="click-area">Tap when ready...</div>
+    <div id="xp-bar">XP: <span id="xp">0</span></div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="result-screen" class="center-container hidden">
+    <h2>Result</h2>
+    <p id="reaction-time"></p>
+    <p id="bestTime"></p>
+    <p id="streakInfo"></p>
+    <div class="button-group">
+      <button onclick="goHome()">🏠 Home</button>
+      <button onclick="showLeaderboard()">🏆 Leaderboard</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard Screen -->
+  <div id="leaderboard-screen" class="center-container hidden">
+    <h2>🏆 Leaderboard</h2>
+    <ul id="leaderboard"></ul>
+    <button onclick="goHome()">🏠 Home</button>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+  <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
